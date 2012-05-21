@@ -28,6 +28,9 @@ h1 {
   width: 400px;
   margin-right: 40px;
   float: left;
+  background-image: url(../img/snake/placeholder.png);
+  background-position: 0 15px;
+  background-repeat: no-repeat;
 }
 
 #meta {
@@ -43,7 +46,7 @@ h1 {
   border:1px solid #aaa;
   overflow:hidden;
   text-align:center;
-  background-color: #fff;
+  background-color: rgba(255, 255, 255, 0);
 }
 #overlay {
   position:absolute;

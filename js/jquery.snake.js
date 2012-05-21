@@ -67,7 +67,10 @@ var Snake = {
 	},
 	
 	newGame : function(reset) {
-
+		if (reset) {
+			Snake.$map.css("transition", "background-color 500ms");
+			Snake.$map.css("background-color", "white");
+		}
 		Snake.cherriesEaten = 0;
 	
 		// reset animation timer
