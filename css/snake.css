@@ -5,6 +5,14 @@
  *
  */
 
+html {
+  background-color: rgb(229,229,229);
+}
+
+body {
+  background-image: url(img/background-texture.png),
+                    -moz-linear-gradient(rgba(255,255,255,0.5), rgba(255,255,255,0.2));
+}
 
 /* columns: 515px | auto (used in tabContent) */
 .col-l {
@@ -20,6 +28,11 @@
   padding-top:4px;
 }
 
+
+#snake-col-info {
+  float: right;
+  min-width: 400px;
+}
 
 #snake-col-info h2 a, #snake-col-info h2 a:visited {
   outline:none;
@@ -41,6 +54,8 @@
   border:1px solid #aaa;
   overflow:hidden;
   text-align:center;
+  background-color: #fff;
+  box-shadow: 0 0 5px #000 inset;
 }
 #overlay {
   position:absolute;
@@ -53,7 +68,6 @@
 #stats {
   width:392px;
   padding:1px 5px 0px 5px;
-  background:url(../img/snake/stats_bg.jpg) repeat-x left top;
 }
 #map-msg {
   position:absolute;
