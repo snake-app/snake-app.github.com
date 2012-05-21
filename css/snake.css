@@ -1,0 +1,205 @@
+/*
+ *
+ * snake.css
+ * (c) Richard Willis
+ *
+ */
+
+
+/* columns: 515px | auto (used in tabContent) */
+.col-l {
+	margin-left:20px;
+	width:400px;
+	float:left;
+}
+.col-r {
+	position:static;
+	width:100%;
+	margin-left:-490px;
+	float:right;
+	padding-top:4px;
+}
+
+
+#snake-col-info h2 a, #snake-col-info h2 a:visited {
+	outline:none;
+}
+#snake-col-info h2 a:hover {
+	color:red;
+}
+#snake-col-info p {
+}
+#marginLeft { 
+	margin:0px 30px 0px 490px;
+}
+
+#map1 {
+	margin-top:15px;
+	width:400px;
+	height:400px;
+	position:relative;
+	border:1px solid #aaa;
+	overflow:hidden;
+	text-align:center;
+}
+#overlay {
+	position:absolute;
+	width:400px;
+	height:400px;
+	background:#fff;
+	z-index:100;
+	opacity:0.5;
+}
+#stats { 
+	width:392px;
+	padding:1px 5px 0px 5px;
+	background:url(../img/snake/stats_bg.jpg) repeat-x left top;
+}
+#map-msg {
+	position:absolute;
+	top:38%;
+	left:0;
+	width:100%;
+	line-height:1;
+	display:block;
+	font-size:200%;
+	z-index:101;
+	text-align:center;
+}
+.snake, .wall {
+	width:10px;
+	height:10px;
+	position:absolute;
+	z-index:99;
+	display:block;
+	white-space:nowrap;
+	overflow:hidden;
+}
+.snake {
+	background:red;
+}
+.wall {
+	background:#aaa url(../img/snake/grid_bg.gif) no-repeat;
+}
+#cherry {
+	display:none;
+	width:10px;
+	height:10px;
+	position:absolute;
+	background:url(../img/snake/cherry.jpg) no-repeat 0 0;
+	z-index:98;
+}
+#score {
+	width:100px;
+	height:50%;
+	text-align:right;
+	font-size:300%;
+	font-weight:normal;
+	padding:4px;
+	border:1px solid #ccc;
+}
+#start-game {
+	outline:none;
+	display:block;
+	width:109px;
+	height:38px;
+	margin:20px auto 0px auto;
+}
+.scores {
+	border:1px solid #ddd;
+	width:360px;
+}
+.scroller {
+	display:block;
+	height:9.6em;
+	overflow:auto;
+}
+.scores .col1 {
+	width:8%;
+	display:block;
+	padding:0px 8px;
+	float:left;
+}
+.scores .col2 {
+	width:13%;
+	display:block;
+	padding:0px 8px;
+	float:left;
+	border-left:1px solid #fff;
+}
+.scores .col3 {
+	width:61%;
+	display:block;
+	padding:0px 8px;
+	float:left;
+	border-left:1px solid #fff;
+}
+
+.scores .head {
+	display:block;
+	padding:2px 0px;
+	font-weight:bold;
+	background:url(../img/snake/score_head_bg.jpg) repeat-x left bottom;
+	border-bottom:1px solid #ccc;
+}
+
+.head .col1, .head .col2 {}
+
+.head .col2 {
+	border-left:1px solid #bbb;
+}
+.head .col3 {
+	border-left:1px solid #bbb;
+}
+
+.scores .row {
+	display:block;
+	border-bottom:1px solid #eee;
+	padding:2px 0px
+}
+
+.browser-icons a, .browser-icons a:visited {
+	display:block;
+	float:left;
+	width:24px;
+	height:20px;
+	overflow:hidden;
+	white-space:nowrap;
+	margin-right:4px;
+	text-decoration:none;
+	border:1px solid #ccc;
+	border-right:1px solid #999;		
+	border-bottom:1px solid #999;		
+	background:transparent url(../img/snake/browser_icons_bg.jpg) no-repeat center top;
+}
+.browser-icons a:hover {
+	border:1px solid #555;
+}
+a.explorer, a.explorer:visited {
+	background-position:center -19px;
+}
+a.safari, a.safari:visited {
+	background-position:center -40px;
+}
+a.opera, a.opera:visited {
+	background-position:center -60px;
+}
+a.chrome, a.chrome:visited {
+	background-position:center -80px;
+}
+#info li {
+	margin-bottom:1.1em;
+}
+#info li p {
+	margin:0.4em 0em;
+}
+
+li.strike {
+	text-decoration:line-through;
+}
+	
+.right {float:right}
+.error {color:red}
+.hidden {display:none}
+
+/* end snake.css */

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<title>Snake</title>
+	<link rel="stylesheet" href="css/jq.css" />
+	<link rel="stylesheet" href="css/snake.css" />
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.18/jquery-ui.min.js"></script>
+	<script src="js/jquery.snake.js"></script>
+	<script src="js/common.js"></script>
+</head>
+<body>
+	<div id="main">
+		<div id="overview" class="tabContent">
+			<div id="snake-col-info" class="col-r">
+
+				<div id="marginLeft">
+					<h2><a href="#instructions" class="accordian open">Instructions</a></h2>
+					<div id="instructions">
+						<p>
+						Use the keyboard arrow keys to control the snake. Eat the specified amount of cherries to advance to the next level,
+						without slithering into yourself or a wall. The speed and length of the snake will increase with every cherry eaten.
+						The game ends when you have used up all of your lives, or when you finish all levels.
+						</p>
+					</div>
+
+					<h2><a href="#shortcut-keys" class="accordian open">Shortcut Keys</a></h2>
+					<div id="shortcut-keys">
+						<ul>
+						<li>P : Pause/Resume Game</li>
+						<li>N : New Game</li>
+						<li>G : Toggle Grid</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+
+			<div id="snake-col-map" class="col-l">
+				<div id="map1">
+					<span id="map-msg">
+						<!-- click to give focus to the document -->
+						<a href="#start" id="start-game">
+							<img src="img/snake/start_game.jpg" alt="Start Game!" />
+						</a>
+					</span>
+				</div>
+				<div id="stats">
+					<span class="right">Eaten:
+						<span id="stats-eaten">0</span> /
+						<span id="stats-totcherries">0</span>
+					</span>
+					Level: <span id="stats-level">0</span> |
+					Lives: <span id="stats-lives">0</span> |
+					Score: <span id="stats-score">0</span>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+</html>
