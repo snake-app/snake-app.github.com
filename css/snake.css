@@ -10,7 +10,7 @@ html {
 }
 
 body {
-  background-image: url(img/background-texture.png),
+  background-image: url(../img/background-texture.png),
                     -moz-linear-gradient(rgba(255,255,255,0.5), rgba(255,255,255,0.2));
 }
 
