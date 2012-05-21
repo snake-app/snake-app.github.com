@@ -7,8 +7,6 @@ img/screenshot.png
 img/snake/cherry.png
 img/snake/grid_bg.gif
 img/snake/score_head_bg.jpg
-img/snake/start_game.gif
-img/snake/start_game.jpg
 js/common.js
 js/jquery.snake.js
 js/jquery.ui.core.js

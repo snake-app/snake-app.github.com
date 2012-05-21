@@ -113,11 +113,9 @@ body {
   border:1px solid #ccc;
 }
 #start-game {
-  outline:none;
-  display:block;
-  width:109px;
-  height:38px;
-  margin:20px auto 0px auto;
+  display: block;
+  margin: 0 auto;
+  float: none;
 }
 .scores {
   border:1px solid #ddd;
