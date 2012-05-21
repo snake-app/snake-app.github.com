@@ -1,11 +1,10 @@
-body, div { font-family: 'lucida grande', helvetica, verdana, arial, sans-serif }
+html { font-family: "Segoe UI", Helvetica, Verdana, Arial, sans-serif; color: #222; }
 body { margin: 0; padding: 0; font-size: small; color: #333 }
 a:hover {color:#ff3333}
 a img {border:0}
-h1, h2 { font-family: 'trebuchet ms', verdana, arial; padding: 10px; margin: 0 }
 h1 { font-size: large}
-h2 { color: #800; padding-left:0; font-size: large; font-weight: normal; }
-h2 a, h2 a:visited {color:#800;text-decoration:none}
+h2 { color: #222; padding-left:0; font-size: large; font-weight: normal; }
+h2 a, h2 a:visited {color:#222;text-decoration:none}
 table { border-collapse: collapse; }
 fieldset {border:0;margin:15px;}
 label {display:block;margin-top:2px;}

@@ -6,12 +6,13 @@
  */
 
 html {
-  background-color: rgb(229,229,229);
+  height: 100%;
 }
 
 body {
   background-image: url(../img/background-texture.png),
                     -moz-linear-gradient(rgba(255,255,255,0.5), rgba(255,255,255,0.2));
+  background-color: rgb(229,229,229);
 }
 
 /* columns: 515px | auto (used in tabContent) */
