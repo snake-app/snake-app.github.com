@@ -71,6 +71,7 @@ var Snake = {
 			Snake.$map.css("transition", "background-color 500ms");
 			Snake.$map.css("background-color", "white");
 		}
+		Snake.gameStarted = true;
 		Snake.cherriesEaten = 0;
 	
 		// reset animation timer
@@ -290,12 +291,14 @@ var Snake = {
 			Snake.newGame();
 		} else {
 			Snake.pause();
+      Snake.gameStarted = false;
 			$("#map-msg").html('<br/>Game over<small><br/><a class="button" href="javascript:Snake.newGame(true)">Play again?</a></small>');
 		}
 	},
 
 	finishedGame : function(){
 		Snake.pause();
+    Snake.gameStarted = false;
 		$("#map-msg").html('<br/>Well Done! You finished.<small><br/><a class="button" href="javascript:Snake.newGame(true)">Play again?</a></small>');
 	},
 
