@@ -1,6 +1,5 @@
 html { font-family: "Segoe UI", Helvetica, Verdana, Arial, sans-serif; color: #222; }
 body { margin: 0; padding: 0; font-size: small; color: #333 }
-a:hover {color:#ff3333}
 a img {border:0}
 h1 { font-size: large}
 h2 { color: #222; padding-left:0; font-size: large; font-weight: normal; }
@@ -35,7 +34,7 @@ ul.links li {margin-bottom:4px}
     display: block;
     text-decoration: none;
     text-shadow: 0px 1px 0px rgba(0,0,0,0.25);
-    font: 16px/48px 'OpenSans-Reg', "Lucida Sans", "Lucida Grande", "Lucida Sans Unicode", Verdana, sans-serif;
+    font: 16px/48px "Segoe UI", Helvetica, Verdana, Arial, sans-serif;
     letter-spacing: -0.25px;
     height: 48px;
     width: 252px;
