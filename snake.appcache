@@ -1,0 +1,16 @@
+CACHE MANIFEST
+# v1 - 2012-05-20
+css/jq.css
+css/snake.css
+img/background-texture.png
+img/screenshot.png
+img/snake/cherry.png
+img/snake/grid_bg.gif
+img/snake/score_head_bg.jpg
+img/snake/start_game.gif
+img/snake/start_game.jpg
+js/common.js
+js/jquery.snake.js
+js/jquery.ui.core.js
+http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js
+https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.18/jquery-ui.min.js

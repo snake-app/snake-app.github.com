@@ -55,7 +55,6 @@ body {
   overflow:hidden;
   text-align:center;
   background-color: #fff;
-  box-shadow: 0 0 5px #000 inset;
 }
 #overlay {
   position:absolute;
