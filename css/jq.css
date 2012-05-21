@@ -124,3 +124,4 @@ body { font-size: small; color: #333 }
               0 0 3px #333;
   border-top: 1px solid #eee;}
 }
+.installed { display: none; }

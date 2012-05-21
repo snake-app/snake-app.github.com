@@ -43,7 +43,7 @@ function install() {
   var request = navigator.mozApps.install(window.location.protocol + "//" + window.location.host + "/snake.webapp");
   request.onsuccess = function() {
     // great - display a message, or redirect to a launch page
-    $('.installed').hide();
+    $('.installer').hide();
   };
   request.onerror = function() {
     // whoops - this.error.name has details
