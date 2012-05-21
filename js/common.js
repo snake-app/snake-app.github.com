@@ -26,7 +26,9 @@ $(function(){
       } else {
         // not installed
         console.log("Install the app");
-        $('#notInstalled').show();
+        $('.installed').each(function(i, element) {
+          element.classList.remove("installed");
+        });
       }
     };
     request.onerror = function() {
@@ -38,10 +40,10 @@ $(function(){
 });
 
 function install() {
-  var request = navigator.mozApps.install("/snake.webapp");
+  var request = navigator.mozApps.install("//" + window.location.host + "/snake.webapp");
   request.onsuccess = function() {
     // great - display a message, or redirect to a launch page
-    $('#notInstalled').hide();
+    $('.installed').hide();
   };
   request.onerror = function() {
     // whoops - this.error.name has details
