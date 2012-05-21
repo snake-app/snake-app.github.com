@@ -5,6 +5,7 @@
   <title>Snake</title>
   <link rel="stylesheet" href="css/jq.css" />
   <link rel="stylesheet" href="css/snake.css" />
+  <link href='http://fonts.googleapis.com/css?family=Leckerli+One' rel='stylesheet' type='text/css'>
   <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.18/jquery-ui.min.js"></script>
   <script src="js/jquery.snake.js"></script>
@@ -12,7 +13,7 @@
 </head>
 <body>
   <div id="inner-body">
-  <h1>Snake</h1>
+  <h1>Slithering</h1>
   <div id="snake-col-map">
     <div id="map1">
       <span id="map-msg">
@@ -32,7 +33,7 @@
   </div>
 
   <div id="meta">
-    <h2>Instructions</h2>
+    <h2>Game instructions</h2>
     <div id="instructions">
       <p>
       Use the keyboard arrow keys to control the snake. Eat the specified amount of cherries to advance to the next level,
@@ -41,12 +42,12 @@
       </p>
     </div>
 
-    <h2>Shortcut Keys</h2>
+    <h2>Shortcut keys</h2>
     <div id="shortcut-keys">
       <ul>
-      <li>Press <span class="key">P</span> to Pause/Resume Game</li>
-      <li>Press <span class="key">N</span> to New Game</li>
-      <li>Press <span class="key">G</span> to Toggle Grid</li>
+      <li>Press <span class="key" onclick="if (Snake.gameStarted) Snake.pause();">P</span> to Pause/Resume Game</li>
+      <li>Press <span class="key" onclick="Snake.newGame(true);">N</span> to New Game</li>
+      <li>Press <span class="key" onclick="Snake.toggleGrid();">G</span> to Toggle Grid</li>
       </ul>
     </div>
     <h2 class="installed">Install this application</h2>
