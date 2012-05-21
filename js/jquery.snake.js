@@ -287,7 +287,7 @@ var Snake = {
 			Snake.newGame();
 		} else {
 			Snake.pause();
-			$("#map-msg").html('<br/>You Died<small><br/><a href="javascript:;" onclick="Snake.newGame(true)">Play again?</a></small>');
+			$("#map-msg").html('<br/>Game over<small><br/><a href="javascript:;" onclick="Snake.newGame(true)">Play again?</a></small>');
 		}
 	},
 
