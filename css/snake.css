@@ -15,11 +15,21 @@ body {
   background-color: rgb(229,229,229);
 }
 
+#inner-body {
+  margin: 0 auto;
+  max-width: 900px;
+}
+
 #snake-col-map {
   width: 400px;
   margin-right: 40px;
   float: left;
   margin-top: -1em;
+}
+
+#meta {
+  float: left;
+  width: 400px;
 }
 
 #map1 {
@@ -156,8 +166,6 @@ li.strike {
   text-decoration:line-through;
 }
 
-.right {float:right}
-.error {color:red}
-.hidden {display:none}
+.clear { clear: both; }
 
 /* end snake.css */
