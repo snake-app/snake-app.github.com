@@ -15,6 +15,10 @@ body {
   background-color: rgb(229,229,229);
 }
 
+h1 {
+  margin-bottom: 0;
+}
+
 #inner-body {
   margin: 0 auto;
   max-width: 900px;
@@ -24,7 +28,6 @@ body {
   width: 400px;
   margin-right: 40px;
   float: left;
-  margin-top: -1em;
 }
 
 #meta {
@@ -51,8 +54,7 @@ body {
   opacity:0.5;
 }
 #stats {
-  width:392px;
-  padding:1px 5px 0px 5px;
+  width:400px;
 }
 #map-msg {
   position:absolute;
@@ -172,5 +174,6 @@ li.strike {
 }
 
 .clear { clear: both; }
+.right { float: right; }
 
 /* end snake.css */
