@@ -106,6 +106,7 @@ OWAVerifier.prototype = {
   verifyReceipts: function (app, installsAllowedFrom, callback) {
     if ((! app.receipts) || (! app.receipts.length)) {
       this.error = this.errors.NO_RECEIPTS("No receipts were found or installed");
+      console.log('NO_RECEIPTS');
       callback(this);
       return;
     }

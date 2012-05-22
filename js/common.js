@@ -54,6 +54,7 @@ function install() {
 
 var verifier = new OWAVerifier();
 verifier.verify(function (verifier) {
+  console.log(verifier.error);
   if (verifier.error.NEED_INSTALL) {
     $('body').addClass('purchaseNow');
     return;
