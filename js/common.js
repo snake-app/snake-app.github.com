@@ -9,6 +9,8 @@ $(function(){
   // setup the game
   Snake.setup();
 
+  updateTweetButton();
+
   // start the game
   $("a#start-game").click(function(e){
     e.preventDefault();
@@ -80,8 +82,13 @@ verifier.verify(function (verifier) {
   }
 });
 
-function forcePurchase(reason) {
-  // Of course, this is kind of terrible, but you can do better yourself ;)
-  alert('You must install!\n' + reason);
-  location.href = 'https://marketplace.mozilla.org/en-US/app/myapp';
+function updateTweetButton() {
+  if (Snake.score)
+    $("#tweet-button").data('text', 'I just scored ' + Snake.score + ' points on Slithering. Can you beat my score?');
+  var url = "//platform.twitter.com/widgets/tweet_button.html?count=none&dnt=true";
+  var data = $("#tweet-button").data();
+  for (var i in data) {
+    url += "&" + i + "=" + encodeURIComponent(data[i]);
+  }
+  $("#tweet-button")[0].src = url;
 }
