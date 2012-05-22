@@ -70,9 +70,10 @@ var Snake = {
 		if (reset) {
 			Snake.$map.css("transition", "background-color 500ms");
 			Snake.$map.css("background-color", "white");
+			Snake.cherriesEaten = 0;
 		}
 		Snake.gameStarted = true;
-		Snake.cherriesEaten = 0;
+
 	
 		// reset animation timer
 		clearInterval(Snake.animateTimer);
@@ -263,6 +264,7 @@ var Snake = {
 			Snake.finishedGame();
 		} else {
 			Snake.level++;
+			Snake.cherriesEaten = 0;
 			Snake.speed = Level[Snake.level][0].speed;
                         Snake.score += Snake.bonus;
 			Snake.newGame();
