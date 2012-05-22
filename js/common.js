@@ -50,7 +50,7 @@ function install() {
   };
   request.onerror = function() {
     // whoops - this.error.name has details
-    console.log(this.error.name);
+    console.log(this.error);
   };
 }
 
