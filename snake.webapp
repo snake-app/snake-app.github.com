@@ -1,7 +1,7 @@
 {
       "version": "1.0",
       "name": "Slithering",
-      "description": "Snakes on a plane",
+      "description": "Slithering is a game where you are a snake moving through a maze trying to eat enough cherries until you become the size of one of the worlds largest Anaconda snakes. Learn how to navigate jungles the shape of blocks while playing Slithering!",
       "developer": {
         "name": "JW/MN"
       },
@@ -10,5 +10,10 @@
         "32": "http://snake-app.github.com/img/icon-32.png",
         "64": "http://snake-app.github.com/img/icon-64.png",
         "128": "http://snake-app.github.com/img/icon-128.png"
-      }
+      },
+      "installs_allowed_from": [
+        "https://marketplace.mozilla.org",
+        "http://snake-app.github.com",
+        "http://snake.localhost"
+      ]
 }
