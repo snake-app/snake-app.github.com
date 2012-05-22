@@ -54,13 +54,11 @@ function install() {
 
 var verifier = new OWAVerifier();
 verifier.verify(function (verifier) {
-  console.log(verifier.error);
-  if (verifier.error.NEED_INSTALL) {
-    $('body').addClass('purchaseNow');
-    return;
-  }
   if (verifier.error) {
-    if (verifier.error.INTERNAL_ERROR) {
+    if (verifier.error.NEED_INSTALL) {
+      console.log('Install needed: ' + verifier.error);
+      $('body').addClass('purchaseNow');
+    } else if (verifier.error.INTERNAL_ERROR) {
       // The verifier library itself got messed up; this shouldn't happen!
       // It's up to you if you want to reject the user at this point
       console.log('Internal error verifying app purchase: ' + verifier.error);
@@ -70,6 +68,7 @@ verifier.verify(function (verifier) {
       // you may want to let the user in, but for a limited time
       console.log('Network error while verifying app purchase. Will try again later.');
     } else if (verifier.error.REFUNDED) {
+      console.log('Application purchase has been refunded: ' + verifier.error);
       $('body').addClass('purchaseNow');
     } else {
       // Some other error occurred; maybe it was never a valid receipt, maybe
