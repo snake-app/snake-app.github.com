@@ -17,6 +17,13 @@ body {
   cursor: default;
 }
 
+@font-face {
+  font-family: 'Leckerli One';
+  font-style: normal;
+  font-weight: normal;
+  src: url('Leckerli.woff') format('woff');
+}
+
 h1 {
   margin-bottom: 0;
   font-family: 'Leckerli One', "Segoe UI", Helvetica, Verdana, Arial, sans-serif;

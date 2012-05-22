@@ -2,6 +2,7 @@ CACHE MANIFEST
 # v2 - 2012-05-21
 css/jq.css
 css/snake.css
+css/Leckerli.woff
 img/background-texture.png
 img/screenshot.png
 img/slithering.png
@@ -18,4 +19,3 @@ js/jquery.snake.js
 js/owa.js
 http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js
 https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.18/jquery-ui.min.js
-http://fonts.googleapis.com/css?family=Leckerli+One
