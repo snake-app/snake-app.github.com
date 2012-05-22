@@ -1,5 +1,6 @@
 html { font-family: "Segoe UI", Helvetica, Verdana, Arial, sans-serif; color: #222; }
 body { font-size: small; color: #333 }
+h1 { font-size: 2.2em; }
 /* Oh yes, your Gumdrop Buttons */
 .button {
     cursor: pointer;
