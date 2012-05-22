@@ -24,8 +24,10 @@ h1 {
 
 #inner-body {
   margin: 0 auto;
-  max-width: 900px;
+  max-width: 825px;
+  min-width: 400px;
 }
+
 .purchaseNow > #inner-body {
   pointer-events: none;
   -moz-user-select: none;
@@ -38,7 +40,7 @@ h1 {
 }
 #snake-col-map {
   width: 400px;
-  margin-right: 40px;
+  margin-right: 25px;
   float: left;
   background-image: url(../img/snake/placeholder.png);
   background-position: 0 15px;
