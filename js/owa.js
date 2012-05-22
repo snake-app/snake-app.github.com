@@ -86,12 +86,16 @@ OWAVerifier.prototype = {
     result.onsuccess = function () {
       try {
         self.app = this.result || null;
+        console.log('c');
         if (! this.result) {
           self.error = self.errors.NO_APP('The app is not installed');
           callback(self);
           return;
         }
+        console.log('a');
         self.verifyReceipts(this.result, undefined, callback);
+        console.log('b');
+        callback(self);
       } catch (e) {
         self.error = self.errors.VERIFIER_ERROR("Exception: " + e, {exception: e});
         callback(self);
