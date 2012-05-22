@@ -51,6 +51,14 @@ h1 {
   float: left;
   width: 400px;
   text-align: justify;
+  position: relative;
+  min-height: 434px;
+}
+
+#share {
+  position: absolute;
+  right: 0;
+  bottom: 0;
 }
 
 #map1 {
