@@ -76,7 +76,8 @@ verifier.verify(function (verifier) {
       // Some other error occurred; maybe it was never a valid receipt, maybe
       // the receipt is corrupted, or someone is trying to mess around.
       // It would not be a bad idea to log this.
-      console.log('Unknown error: ' + verifier.app.receipts + ' ' + verifier.error);
+      if (verifier.app)
+        console.log('Unknown error: ' + verifier.app.receipts + ' ' + verifier.error);
       $('body').addClass('purchaseNow');
     }
   }
