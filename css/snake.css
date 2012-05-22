@@ -19,7 +19,7 @@ body {
 
 h1 {
   margin-bottom: 0;
-  font-family: 'Leckerli One', cursive;
+  font-family: 'Leckerli One', "Segoe UI", Helvetica, Verdana, Arial, sans-serif;
 }
 
 #inner-body {
