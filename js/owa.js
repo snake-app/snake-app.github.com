@@ -81,6 +81,10 @@ OWAVerifier.prototype = {
 
   verify: function (callback) {
     this.error = this.errors.VERIFICATION_INCOMPLETE(".verify() has not completed");
+    if (!navigator.mozApps) {
+      callback(this);
+      return;
+    }
     var result = navigator.mozApps.getSelf();
     var self = this;
     result.onsuccess = function () {
