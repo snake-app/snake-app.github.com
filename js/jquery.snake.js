@@ -242,18 +242,18 @@ var Snake = {
 
 		// adjust score
 		Snake.score += 50;
-		$("#stats-score").html(Snake.score);
+		$("#stats-score").text(Snake.score);
 
 		// update cherries eaten
 		Snake.cherriesEaten++;
-		$("#stats-eaten").html(Snake.cherriesEaten);
+		$("#stats-eaten").text(Snake.cherriesEaten);
 		
 		// adjust speed
 		Snake.speed -= 1;
-		$("#stats-speed").html(Snake.speed);
+		$("#stats-speed").text(Snake.speed);
 
 		clearInterval(Snake.animateTimer);
-		Snake.animateTimer = setInterval(Snake.animate, Snake.speed);			
+		Snake.animateTimer = setInterval(Snake.animate, Snake.speed);
 		return false;
 	},
 
