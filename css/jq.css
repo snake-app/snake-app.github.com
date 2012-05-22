@@ -127,3 +127,4 @@ body { font-size: small; color: #333 }
 
 .installed { display: none; }
 .shortcut { text-decoration: underline; }
+.notInstalledYet { display: none; }
