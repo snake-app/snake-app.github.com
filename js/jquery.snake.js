@@ -300,18 +300,20 @@ var Snake = {
 			Snake.newGame();
 		} else {
 			Snake.pause();
-      Snake.gameStarted = false;
+			Snake.gameStarted = false;
 			$("#map-msg").html('<br/>Game over<small><br/><a class="button" href="javascript:Snake.newGame(true)">Play again?</a></small>');
+			updateTweetButton();
 		}
 	},
 
 	finishedGame : function(){
 		Snake.pause();
-    Snake.gameStarted = false;
+		Snake.gameStarted = false;
 		$("#map-msg").html('<br/>Well Done! You finished.<small><br/><a class="button" href="javascript:Snake.newGame(true)">Play again?</a></small>');
+		updateTweetButton();
 	},
 
-	Cherry : {	
+	Cherry : {
 		left : 0,
 		top : 0,
 		generate : function(show){
