@@ -89,6 +89,7 @@ OWAVerifier.prototype = {
         if (! this.result) {
           self.error = self.errors.NO_APP('The app is not installed');
           callback(self);
+          return;
         }
         self.verifyReceipts(this.result, undefined, callback);
       } catch (e) {
