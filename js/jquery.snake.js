@@ -12,11 +12,10 @@ var Snake = {
 
 	$map : {}, $cherry : {}, $overlay : {}, seg : {}, wallseg : {}, cache : {},
 	cacheimages : ['../img/snake/cherry.jpg'],
-	animateTimer : 0, score : 0, grid : 0, level : 1, lives : 3, speed : 0, cherriesEaten : 0,
+	animateTimer : 0, score : 0, bonus: 0, initialBonus: 500, grid : 0, level : 1, lives : 3, speed : 0, cherriesEaten : 0,
 	wall : 1, // are the outer map walls an obstacle?
 
 	setup : function() {
-
 		// pre-cache images
 		for(var i in Snake.cacheimages) {
 			var img = new Image();
@@ -78,21 +77,25 @@ var Snake = {
 		clearInterval(Snake.animateTimer);
 		Snake.animateTimer = 0;
 
+                // reset bonus
+                Snake.bonus = Snake.initialBonus;
+		$("#stats-bonus").text(Snake.bonus);
+
 		// reset score
 		Snake.score = reset ? 0 : Snake.score;
-		$("#stats-score").html(Snake.score+"");
+		$("#stats-score").text(Snake.score+"");
 
 		// reset level
 		Snake.level = reset ? 1 : Snake.level;
-		$("#stats-level").html(Snake.level);
+		$("#stats-level").text(Snake.level);
 
 		// reset lives
 		Snake.lives = reset ? 3 : Snake.lives;
-		$("#stats-lives").html(Snake.lives);
+		$("#stats-lives").text(Snake.lives);
 
 		// reset level cherries eaten and total
-		$("#stats-eaten").html(Snake.cherriesEaten+"");
-		$("#stats-totcherries").html(Level[Snake.level][0].cherries);
+		$("#stats-eaten").text(Snake.cherriesEaten+"");
+		$("#stats-totcherries").text(Level[Snake.level][0].cherries);
 		
 		// remove any wall & snake segments
 		$(".wall, .snake").remove();
@@ -139,8 +142,12 @@ var Snake = {
 		});
 	},
 			
-	animate : function() {			
-		// adjust segment position list	 					
+	animate : function() {
+                // decrease bonus until 0
+                Snake.bonus = Math.max(0, Snake.bonus -= 1);
+		$("#stats-bonus").text(Snake.bonus);
+
+		// adjust segment position list
 		for(var i=1;i<Snake.seg.length;i++) {
 			Snake.seg[i].top = Snake.seg[(i==Snake.seg.length-1?0:i+1)].top;
 			Snake.seg[i].left = Snake.seg[(i==Snake.seg.length-1?0:i+1)].left;
@@ -214,9 +221,9 @@ var Snake = {
 			Snake.seg[i].css({top:Snake.seg[i].top+"px",left:Snake.seg[i].left+"px",display:"block"});
 		}						
 	},
-			
+
+        // Called when a cherry is eaten
 	advance : function(val) {
-		
 		// increase snake segments
 		Snake.seg.length++;
 
@@ -234,28 +241,29 @@ var Snake = {
 		Snake.Cherry.generate();
 
 		// adjust score
-		Snake.score += 10;
-		$("#stats-score").html(Snake.score);
+		Snake.score += 50;
+		$("#stats-score").text(Snake.score);
 
 		// update cherries eaten
 		Snake.cherriesEaten++;
-		$("#stats-eaten").html(Snake.cherriesEaten);
+		$("#stats-eaten").text(Snake.cherriesEaten);
 		
 		// adjust speed
 		Snake.speed -= 1;
-		$("#stats-speed").html(Snake.speed);
+		$("#stats-speed").text(Snake.speed);
 
 		clearInterval(Snake.animateTimer);
-		Snake.animateTimer = setInterval(Snake.animate, Snake.speed);			
+		Snake.animateTimer = setInterval(Snake.animate, Snake.speed);
 		return false;
 	},
 
 	advanceLevel : function() {
-		if (Snake.level == Level.length-1) {
-			Snake.finishedGame();	
+		if (Snake.level == Level.length - 1) {
+			Snake.finishedGame();
 		} else {
 			Snake.level++;
 			Snake.speed = Level[Snake.level][0].speed;
+                        Snake.score += Snake.bonus;
 			Snake.newGame();
 		}
 	},
@@ -263,13 +271,13 @@ var Snake = {
 	toggleGrid : function(){
 		var background;
 		if (!Snake.grid) {
-			background = "transparent url(img/snake/grid_bg.gif)";
+			background = "url(img/snake/grid_bg.gif)";
 			Snake.grid = 1;
 		} else {
-			background = "transparent";
+			background = "none";
 			Snake.grid = 0;
 		}
-		Snake.$map.css({background:background});
+		Snake.$map.css({backgroundImage: background});
 	},
 	
 	pause : function(){

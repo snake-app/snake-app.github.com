@@ -93,7 +93,7 @@ h1 {
   overflow:hidden;
 }
 .snake {
-  background:red;
+  background:#779451;
 }
 .wall {
   background:#aaa url(../img/snake/grid_bg.gif) no-repeat;
