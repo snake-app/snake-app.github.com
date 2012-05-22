@@ -127,3 +127,5 @@ h1 { font-size: 2.2em; }
 }
 
 .installed { display: none; }
+.shortcut { text-decoration: underline; }
+.notInstalledYet { display: none; }

@@ -44,6 +44,7 @@ function install() {
   request.onsuccess = function() {
     // great - display a message, or redirect to a launch page
     $('.installer').hide();
+    $('.notInstalledYet').removeClass('notInstalledYet');
   };
   request.onerror = function() {
     // whoops - this.error.name has details

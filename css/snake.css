@@ -37,6 +37,7 @@ h1 {
 #meta {
   float: left;
   width: 400px;
+  text-align: justify;
 }
 
 #map1 {

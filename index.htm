@@ -3,8 +3,9 @@
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
   <title>Slithering</title>
-  <link rel="stylesheet" href="css/jq.css" />
-  <link rel="stylesheet" href="css/snake.css" />
+  <link rel="stylesheet" href="css/jq.css">
+  <link rel="stylesheet" href="css/snake.css">
+  <link rel="icon" type="image/png" href="img/icon-16.png">
   <link href='http://fonts.googleapis.com/css?family=Leckerli+One' rel='stylesheet' type='text/css'>
   <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.18/jquery-ui.min.js"></script>
@@ -36,7 +37,7 @@
   <div id="meta">
     <h2>Game instructions</h2>
     <div id="instructions">
-      <p>
+      <p><img src="img/slithering.png" align="right" height="120" width="120" />
       Use the keyboard arrow keys to control the snake. Eat the specified amount of cherries to advance to the next level,
       without slithering into yourself or a wall. The speed and length of the snake will increase with every cherry eaten.
       The game ends when you have used up all of your lives, or when you finish all levels.
@@ -46,15 +47,19 @@
     <h2>Shortcut keys</h2>
     <div id="shortcut-keys">
       <ul>
-      <li>Press <span class="key" onclick="if (Snake.gameStarted) Snake.pause();">P</span> to Pause/Resume Game</li>
-      <li>Press <span class="key" onclick="Snake.newGame(true);">N</span> to New Game</li>
-      <!-- <li>Press <span class="key" onclick="Snake.toggleGrid();">G</span> to Toggle Grid</li> -->
+      <li>Press <span class="key" onclick="if (Snake.gameStarted) Snake.pause();">P</span> to <span class="shortcut">P</span>ause/Resume Game</li>
+      <li>Press <span class="key" onclick="Snake.newGame(true);">N</span> to start a <span class="shortcut">N</span>ew Game</li>
+      <!-- <li>Press <span class="key" onclick="Snake.toggleGrid();">G</span> to Toggle <span class="shortcut">G</span>rid</li> -->
       </ul>
     </div>
     <h2 class="installed installer">Install this application</h2>
     <div class="installed installer">
       <p>With Mozilla Firefox, you can install this game to your computer for use while you're disconnected from the internet. Learn more at <a href="http://marketplace.mozilla.org">the Mozilla Marketplace</a>.</p>
       <a class="button" onclick="install()" >Install</a>
+    </div>
+    <h2 class="notInstalledYet">Application installed</h2>
+    <div class="notInstalledYet">
+      <p>Slithering has now been installed. If you are on Windows, you can check you Start Menu to find the game, and if you are on Mac OS X you can check your Applications folder to find the game. Have fun!</p>
     </div>
   </div>
   <div class="clear"></div>
