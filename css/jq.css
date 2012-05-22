@@ -128,3 +128,32 @@ body { font-size: small; color: #333 }
 .installed { display: none; }
 .shortcut { text-decoration: underline; }
 .notInstalledYet { display: none; }
+#purchaseNowOverlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 9999;
+  pointer-events: none;
+  background: -moz-linear-gradient(rgba(0,0,0,.5), rgba(0,0,0,.9));
+}
+#purchaseNow {
+  position: absolute;
+  margin: auto;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  width: 350px;
+  height: 144px;
+  padding: 10px;
+  box-shadow: 0 0 10px #000;
+  pointer-events: all;
+  background: #fff url(../img/marketplace-glyph.png) no-repeat left;
+  padding-left: 144px;
+  -moz-user-select: none;
+}
+#purchaseNow > h2 {
+  margin: 0;
+}

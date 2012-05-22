@@ -13,6 +13,8 @@ body {
   background-image: url(../img/background-texture.png),
                     -moz-linear-gradient(rgba(255,255,255,0.5), rgba(255,255,255,0.2));
   background-color: rgb(229,229,229);
+  -moz-user-select: none;
+  cursor: default;
 }
 
 h1 {
@@ -24,7 +26,16 @@ h1 {
   margin: 0 auto;
   max-width: 900px;
 }
-
+.purchaseNow > #inner-body {
+  pointer-events: none;
+  -moz-user-select: none;
+}
+#purchaseNowOverlay {
+  display: none;
+}
+.purchaseNow > #purchaseNowOverlay {
+  display: block;
+}
 #snake-col-map {
   width: 400px;
   margin-right: 40px;
@@ -179,5 +190,6 @@ li.strike {
 
 .clear { clear: both; }
 .right { float: right; }
+.hidden { display: none; }
 
 /* end snake.css */

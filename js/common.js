@@ -51,3 +51,37 @@ function install() {
     console.log(this.error.name);
   };
 }
+
+var verifier = new OWAVerifier();
+verifier.verify(function (verifier) {
+  if (verifier.error.NEED_INSTALL) {
+    $('body').addClass('purchaseNow');
+    return;
+  }
+  if (verifier.error) {
+    if (verifier.error.INTERNAL_ERROR) {
+      // The verifier library itself got messed up; this shouldn't happen!
+      // It's up to you if you want to reject the user at this point
+      console.log('Internal error verifying app purchase: ' + verifier.error);
+    } else if (verifier.error.NETWORK_ERROR) {
+      // it was some kind of network or server error
+      // i.e., not the fault of the user
+      // you may want to let the user in, but for a limited time
+      console.log('Network error while verifying app purchase. Will try again later.');
+    } else if (verifier.error.REFUNDED) {
+      $('body').addClass('purchaseNow');
+    } else {
+      // Some other error occurred; maybe it was never a valid receipt, maybe
+      // the receipt is corrupted, or someone is trying to mess around.
+      // It would not be a bad idea to log this.
+      console.log('Unknown error: ' + verifier.app.receipts + ' ' + verifier.error);
+      $('body').addClass('purchaseNow');
+    }
+  }
+});
+
+function forcePurchase(reason) {
+  // Of course, this is kind of terrible, but you can do better yourself ;)
+  alert('You must install!\n' + reason);
+  location.href = 'https://marketplace.mozilla.org/en-US/app/myapp';
+}

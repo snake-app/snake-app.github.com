@@ -9,6 +9,7 @@
   <link href='http://fonts.googleapis.com/css?family=Leckerli+One' rel='stylesheet' type='text/css'>
   <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.18/jquery-ui.min.js"></script>
+  <script src="js/owa.js"></script>
   <script src="js/jquery.snake.js"></script>
   <script src="js/common.js"></script>
 </head>
@@ -51,17 +52,26 @@
       <li>Press <span class="key" onclick="Snake.toggleGrid();">G</span> to Toggle <span class="shortcut">G</span>rid</li>
       </ul>
     </div>
-    <h2 class="installed installer">Install this application</h2>
-    <div class="installed installer">
+    <h2 class="hidden installed installer">Install this application</h2>
+    <div class="hidden installed installer">
       <p>With Mozilla Firefox, you can install this game to your computer for use while you're disconnected from the internet. Learn more at <a href="http://marketplace.mozilla.org">the Mozilla Marketplace</a>.</p>
       <a class="button" onclick="install()" >Install</a>
     </div>
-    <h2 class="notInstalledYet">Application installed</h2>
-    <div class="notInstalledYet">
+    <h2 class="hidden notInstalledYet">Application installed</h2>
+    <div class="hidden notInstalledYet">
       <p>Slithering has now been installed. If you are on Windows, you can check you Start Menu to find the game, and if you are on Mac OS X you can check your Applications folder to find the game. Have fun!</p>
     </div>
   </div>
   <div class="clear"></div>
+  </div>
+  <div id="purchaseNowOverlay">
+    <div id="purchaseNow">
+      <h2>Get Slithering today</h2>
+      <div>
+        <p>Get this app along with many other fan favorites today at the Mozilla Marketplace.</p>
+        <a class="button" href="https://marketplace.mozilla.org">Get Slithering</a>
+      </div>
+    </div>
   </div>
 </body>
 </html>
