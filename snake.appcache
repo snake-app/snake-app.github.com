@@ -1,5 +1,5 @@
 CACHE MANIFEST
-# v4 - 2012-07-07
+# v5 - 2012-07-13
 css/jq.css
 css/snake.css
 css/Leckerli.woff
@@ -16,6 +16,6 @@ img/snake/grid_bg.gif
 img/snake/placeholder.png
 js/common.js
 js/jquery.snake.js
-js/owa.js
+js/receiptverifier/receiptverifier.js
 http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js
 http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.18/jquery-ui.min.js
