@@ -1,5 +1,10 @@
 
 $(function() {
+  // Check for appcache updates
+  try {
+    window.applicationCache.update();
+  } catch (ex) {}
+
   // setup the game
   Snake.setup();
 
