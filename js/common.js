@@ -1,11 +1,5 @@
-/*
- *
- * Filename:	common.js
- * Developer:	Richard Willis
- *
- */
 
-$(function(){
+$(function() {
   // setup the game
   Snake.setup();
 
@@ -38,7 +32,6 @@ $(function(){
         console.log('Error checking installation status: ' + this.error.message);
     };
   }
-
 });
 
 function install() {

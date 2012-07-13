@@ -1,4 +1,4 @@
-/*
+/**
  *
  * jquery.snake.js - a nibbles clone
  * Copyright (c) 2008 Richard Willis
@@ -39,7 +39,7 @@ var Snake = {
 			// preventing default event behaviour causes issues with IE;
 			// need to research further!
 			keycode = (e == null) ? event.keyCode : e.which;
-			switch(keycode) {					
+			switch(keycode) {
 				case 71 : (!$.browser.msie && e.preventDefault()); Snake.toggleGrid(); break;
 				case 80 : (!$.browser.msie && e.preventDefault()); Snake.pause(); break;
 				case 78 : (!$.browser.msie && e.preventDefault()); Snake.newGame(true); break;
@@ -50,22 +50,22 @@ var Snake = {
 				case 40 :
 					(!$.browser.msie && e.preventDefault());
 					Snake.cache.keyCode[0] = Snake.cache.keyCode[1];
-					Snake.cache.keyCode[1] = keycode;					
+					Snake.cache.keyCode[1] = keycode;
 					break;
 				default : break;
 			}
-		};	
+		};
 	},
-		
+
 	start : function() {
 		// set initial speed
 		Snake.speed = Level[Snake.level][0].speed;
 		// show the cherry, and start the animation
 		Snake.$cherry.fadeIn(function(){
-			Snake.animateTimer = setInterval(Snake.animate, Snake.speed);			
+			Snake.animateTimer = setInterval(Snake.animate, Snake.speed);
 		});
 	},
-	
+
 	newGame : function(reset) {
 		if (reset) {
 			Snake.$map.css("transition", "background-color 500ms");
@@ -74,7 +74,7 @@ var Snake = {
 		}
 		Snake.gameStarted = true;
 
-	
+
 		// reset animation timer
 		clearInterval(Snake.animateTimer);
 		Snake.animateTimer = 0;
@@ -98,20 +98,20 @@ var Snake = {
 		// reset level cherries eaten and total
 		$("#stats-eaten").text(Snake.cherriesEaten+"");
 		$("#stats-totcherries").text(Level[Snake.level][0].cherries);
-		
+
 		// remove any wall & snake segments
 		$(".wall, .snake").remove();
 
 		// hide the cherry
 		Snake.$cherry.hide();
 
-		// update map message	
+		// update map message
 		$("#map-msg").hide().html('Level '+Snake.level+' <br/>Eat <strong>'+Level[Snake.level][0].cherries+'</strong> cherries<small><br/>'+
 			'<small style="font-size:80%"><strong>('+Snake.lives+'</strong> '+(Snake.lives>1?'lives':'life')+' remaining)</small></small>'
 			).fadeIn(500, function(){
 
 			setTimeout(function(){
-	
+
 				// hide map message
 				$("#map-msg").fadeOut(500, function(){
 
@@ -121,7 +121,7 @@ var Snake = {
 					// reset and generate wall
 					Snake.wallseg = {};
 					Snake.Wall.generate();
-					
+
 					// generate cherry
 					Snake.Cherry.generate(false);
 
@@ -131,7 +131,7 @@ var Snake = {
 						Snake.seg[i] = $('<span class="snake '+i+'"></span>').appendTo(Snake.$map);
 						Snake.seg[i].top = Snake.seg[i].left = 0;
 					}
-				
+
 					// start animation
 					setTimeout(function(){
 						// reset direction
@@ -143,7 +143,7 @@ var Snake = {
 			}, 2500);
 		});
 	},
-			
+
 	animate : function() {
                 // decrease bonus until 0
                 Snake.bonus = Math.max(0, Snake.bonus -= 1);
@@ -175,7 +175,7 @@ var Snake = {
 			if (Snake.seg[0].left > Snake.$map.width-10) {
 				Snake.wall && Snake.gameOver();
 				Snake.seg[0].left = 0;
-			}			
+			}
 		}else if (keycode == 40) {
 			//down
 			Snake.seg[0].top += 10;
@@ -196,16 +196,16 @@ var Snake = {
 			if (Snake.seg[0].left < 0) {
 				Snake.wall && Snake.gameOver();
 				Snake.seg[0].left = Snake.$map.width-10;
-			}			
+			}
 		}
 		// check if snake has eaten a cherry
 		(Snake.seg[0].left == Snake.Cherry.left && Snake.seg[0].top == Snake.Cherry.top) &&
 			Snake.advance();
-		
+
 		// unset Snake.seg[0], gotta be an easier way!
 		var seg = {};
-		for(var i=1;i< Snake.seg.length;i++) {seg[i-1]=Snake.seg[i];}	
-		
+		for(var i=1;i< Snake.seg.length;i++) {seg[i-1]=Snake.seg[i];}
+
 		// check if snake has slithered into itself
 		(Snake.in_obj(Snake.seg[0], seg)) &&
 			Snake.gameOver();
@@ -221,7 +221,7 @@ var Snake = {
 		// reposition snake segments on map
 		for(var i=0;i<Snake.seg.length;i++) {
 			Snake.seg[i].css({top:Snake.seg[i].top+"px",left:Snake.seg[i].left+"px",display:"block"});
-		}						
+		}
 	},
 
         // Called when a cherry is eaten
@@ -234,11 +234,11 @@ var Snake = {
 		$('<span class="snake '+x+'"></span>')
 		.css({left:Snake.seg[1].left+"px",top:Snake.seg[1].top+"px",display:"block"})
 		.appendTo(Snake.$map);
-		
+
 		// position new snake segment
 		Snake.seg[x].top = Snake.seg[x-1].top;
 		Snake.seg[x].left = Snake.seg[x-1].left;
-		
+
 		// reposition cherry
 		Snake.Cherry.generate();
 
@@ -249,7 +249,7 @@ var Snake = {
 		// update cherries eaten
 		Snake.cherriesEaten++;
 		$("#stats-eaten").text(Snake.cherriesEaten);
-		
+
 		// adjust speed
 		Snake.speed -= 1;
 		$("#stats-speed").text(Snake.speed);
@@ -270,7 +270,7 @@ var Snake = {
 			Snake.newGame();
 		}
 	},
-			
+
 	toggleGrid : function(){
 		var background;
 		if (!Snake.grid) {
@@ -282,7 +282,7 @@ var Snake = {
 		}
 		Snake.$map.css({backgroundImage: background});
 	},
-	
+
 	pause : function(){
 		if (Snake.animateTimer == 0) {
 			Snake.start();
@@ -319,11 +319,11 @@ var Snake = {
 		left : 0,
 		top : 0,
 		generate : function(show){
-			do {	
+			do {
 				Snake.Cherry.left = Math.round((Math.random()*(Snake.$map.width-10))/10)*10;
 				Snake.Cherry.top = Math.round((Math.random()*(Snake.$map.height-10))/10)*10;
 			} while (Snake.in_obj(Snake.Cherry, Snake.wallseg) || Snake.in_obj(Snake.Cherry, Snake.seg));
-			
+
 			Snake.$cherry.css({
 				left:Snake.Cherry.left+"px",
 				top:Snake.Cherry.top+"px"
@@ -339,7 +339,7 @@ var Snake = {
 			var
 				walls = Level[Snake.level],
 				c = 0, t, l, i, n;
-	
+
 			// append multiple walls
 			for(i=1;i<walls.length;i++) {
 				t = walls[i].top;
@@ -380,7 +380,7 @@ Level = [
 		{seg : 30, top : 50, left : 300}
 	],
 	[
-				
+
 		{cherries : 5, length : 20, speed : 90},
 		{seg : 12, top : 10, left : 50},
 		{seg : 12, top : 0, left : 350},
