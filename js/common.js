@@ -70,9 +70,6 @@ mozmarket.receipts.verify(function (verifier) {
     // i.e., not the fault of the user
     // you may want to let the user in, but for a limited time
     console.log('Network error while verifying app purchase. Will try again later.');
-  } else if (verifier.state instanceof verifier.states.Refunded) {
-    console.log('Application purchase has been refunded: ' + verifier.error);
-    $('body').addClass('purchaseNow');
   } else {
     // Some other error occurred; maybe it was never a valid receipt, maybe
     // the receipt is corrupted, or someone is trying to mess around.
