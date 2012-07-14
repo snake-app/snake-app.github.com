@@ -1,5 +1,4 @@
-
-$(function() {
+$(function common_onready() {
   // Check for appcache updates
   try {
     window.applicationCache.update();
@@ -11,7 +10,7 @@ $(function() {
   updateTweetButton();
 
   // start the game
-  $("a#start-game").click(function(e){
+  $("a#start-game").click(function startClick(e) {
     e.preventDefault();
     Snake.newGame(true);
   });

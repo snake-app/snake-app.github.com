@@ -1,8 +1,6 @@
 /*
- *
  * snake.css
  * (c) Richard Willis
- *
  */
 
 html {
@@ -205,8 +203,14 @@ li.strike {
   text-decoration:line-through;
 }
 
-.clear { clear: both; }
-.right { float: right; }
-.hidden { display: none; }
+.clear {
+  clear: both;
+}
 
-/* end snake.css */
+.right {
+  float: right;
+}
+
+.hidden {
+  display: none;
+}
