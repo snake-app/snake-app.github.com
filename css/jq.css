@@ -1,8 +1,14 @@
 /* General page styles */
 
 html {
-  font-family: "Segoe UI", Helvetica, Verdana, Arial, sans-serif;
+  background-attachment: fixed;
+  background-color: rgb(229,229,229);
+  background-image: url(../img/background-texture.png),
+                    linear-gradient(rgba(255,255,255,0.5), rgba(255,255,255,0.2));
   color: #222;
+  font-family: "Segoe UI", Helvetica, Verdana, Arial, sans-serif;
+  -moz-user-select: none;
+  cursor: default;
 }
 
 body {
@@ -10,7 +16,38 @@ body {
   color: #333
 }
 
-h1 { font-size: 2.2em; }
+@font-face {
+  font-family: 'Leckerli One';
+  font-style: normal;
+  font-weight: normal;
+  src: url('Leckerli.woff') format('woff');
+}
+
+h1 {
+  font-family: 'Leckerli One', "Segoe UI", Helvetica, Verdana, Arial, sans-serif;
+  font-size: 2.2em;
+  margin-bottom: 0;
+}
+
+#inner-body {
+  margin: 0 auto;
+  max-width: 825px;
+  min-width: 400px;
+}
+
+#meta {
+  float: left;
+  width: 400px;
+  text-align: justify;
+  position: relative;
+  min-height: 434px;
+}
+
+#share {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+}
 
 /* Oh yes, your Gumdrop Buttons */
 .button {
@@ -149,6 +186,19 @@ h1 { font-size: 2.2em; }
   display: none;
 }
 
+.purchaseNow > #inner-body {
+  pointer-events: none;
+  -moz-user-select: none;
+}
+
+#purchaseNowOverlay {
+  display: none;
+}
+
+.purchaseNow > #purchaseNowOverlay {
+  display: block;
+}
+
 #purchaseNowOverlay {
   position: absolute;
   top: 0;
@@ -179,6 +229,18 @@ h1 { font-size: 2.2em; }
 
 #purchaseNow > h2 {
   margin: 0;
+}
+
+.clear {
+  clear: both;
+}
+
+.right {
+  float: right;
+}
+
+.hidden {
+  display: none;
 }
 
 /* media queries */
