@@ -190,16 +190,13 @@ h1 {
   -moz-user-select: none;
 }
 
-#purchaseNowOverlay {
-  display: none;
-}
-
 .purchaseNow > #purchaseNowOverlay {
   display: block;
 }
 
 #purchaseNowOverlay {
-  position: absolute;
+  display: none;
+  position: fixed;
   top: 0;
   left: 0;
   right: 0;
