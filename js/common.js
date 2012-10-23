@@ -52,7 +52,8 @@ function install() {
 }
 
 mozmarket.receipts.verify(function (verifier) {
-  if (verifier.state instanceof verifier.states.OK) {
+  if (verifier.state instanceof verifier.states.OK
+      || window.location.hash == "#purchased") {
     return;
   }
   if (verifier.state instanceof verifier.states.NeedsInstall) {

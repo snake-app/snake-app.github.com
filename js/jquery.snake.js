@@ -55,7 +55,8 @@ var Snake = {
           (!$.browser.msie && e.preventDefault()); Snake.newGame(true);
           break;
         case 75:
-          $('.purchaseNow').removeClass('purchaseNow'); $('.hidden').removeClass('hidden');
+          $('.purchaseNow').removeClass('purchaseNow');
+          $('.hidden').removeClass('hidden');
           break;
         case Snake.direction.left:
         case Snake.direction.up:
