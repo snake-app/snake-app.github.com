@@ -24,6 +24,47 @@
   text-align:center;
   background-color: rgba(255, 255, 255, 0);
 }
+
+/* on-screen controls */
+#controls {
+  width: 100%;
+  height: 100%;
+}
+
+#controls > button {
+  background-color: transparent;
+  border: none;
+  margin: 0;
+  padding: 0;
+  position: absolute;
+}
+
+#controls > .controls-vertical {
+  height: 10%;
+  left: 0;
+  margin: 0 10%;
+  width: 80%;
+}
+
+#controls > .controls-horizontal {
+  height: 80%;
+  margin: 10% 0;
+  top: 0;
+  width: 10%;
+}
+
+#controls-left {
+  left: 0;
+}
+
+#controls-right {
+  right: 0;
+}
+
+#controls-down {
+  bottom: 0;
+}
+
 #overlay {
   position:absolute;
   width:400px;

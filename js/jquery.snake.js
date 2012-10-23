@@ -13,6 +13,13 @@ var Snake = {
   animateTimer: 0, score: 0, bonus: 0, initialBonus: 500, grid: 0, level: 1, lives: 3, speed: 0, cherriesEaten: 0,
   wall: 1, // are the outer map walls an obstacle?
 
+  direction: {
+    left: 37,
+    up: 38,
+    right: 39,
+    down: 40,
+  },
+
   setup: function() {
     // pre-cache images
     for(var i in Snake.cacheimages) {
@@ -50,18 +57,22 @@ var Snake = {
         case 75:
           $('.purchaseNow').removeClass('purchaseNow'); $('.hidden').removeClass('hidden');
           break;
-        case 37:
-        case 38:
-        case 39:
-        case 40:
+        case Snake.direction.left:
+        case Snake.direction.up:
+        case Snake.direction.right:
+        case Snake.direction.down:
           (!$.browser.msie && e.preventDefault());
-          Snake.cache.keyCode[0] = Snake.cache.keyCode[1];
-          Snake.cache.keyCode[1] = keycode;
+          Snake.changeDirection(keycode);
           break;
         default:
           break;
       }
     };
+  },
+
+  changeDirection: function(directionKeyCode) {
+    Snake.cache.keyCode[0] = Snake.cache.keyCode[1];
+    Snake.cache.keyCode[1] = directionKeyCode;
   },
 
   start: function() {
