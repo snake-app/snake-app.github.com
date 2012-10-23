@@ -9,7 +9,7 @@
 var Snake = {
 
   $map: {}, $cherry: {}, $overlay: {}, seg: {}, wallseg: {}, cache: {},
-  cacheimages: ['../img/snake/cherry.jpg'],
+  cacheimages: ['img/snake/cherry.jpg'],
   animateTimer: 0, score: 0, bonus: 0, initialBonus: 500, grid: 0, level: 1, lives: 3, speed: 0, cherriesEaten: 0,
   wall: 1, // are the outer map walls an obstacle?
 
