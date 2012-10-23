@@ -1,3 +1,5 @@
+/* General page styles */
+
 html {
   font-family: "Segoe UI", Helvetica, Verdana, Arial, sans-serif;
   color: #222;
@@ -177,4 +179,16 @@ h1 { font-size: 2.2em; }
 
 #purchaseNow > h2 {
   margin: 0;
+}
+
+/* media queries */
+@media screen and (max-device-width: 320px) and (max-device-height: 480px)  {
+  /* hide shortcut keys on small screens.  They may not even have visible keyboards */
+  #shortcut-keys {
+    display: none;
+  }
+
+  body {
+      width: 416px;
+  }
 }
