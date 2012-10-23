@@ -81,6 +81,10 @@ function updateTweetButton() {
   if (Snake.score)
     $("#tweet-button").data('text', 'I just scored ' + Snake.score + ' points on Slithering. Can you beat my score?');
   var url = "//platform.twitter.com/widgets/tweet_button.html?count=none&dnt=true";
+  // fallback to https when developing with file: URIs
+  if (window.location.protocol == "file:") {
+    url = "https:" + url;
+  }
   var data = $("#tweet-button").data();
   for (var i in data) {
     url += "&" + i + "=" + encodeURIComponent(data[i]);
