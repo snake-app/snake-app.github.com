@@ -146,15 +146,3 @@
 #info li p {
   margin:0.4em 0em;
 }
-
-.clear {
-  clear: both;
-}
-
-.right {
-  float: right;
-}
-
-.hidden {
-  display: none;
-}
