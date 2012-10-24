@@ -14,8 +14,11 @@
   background-repeat: no-repeat;
 }
 
-@media screen and (max-device-width: 320px)  {
+@media screen and (max-width: 320px)  {
   #snake-col-map {
+    margin-left: -10%;
+    margin-right: -10%;
+    min-width: 320px;
     transform: scale(0.8);
   }
 }
