@@ -16,5 +16,6 @@
         "http://snake-app.github.com",
         "http://snake.localhost"
       ],
-      "appcache_path": "/snake.appcache"
+      "appcache_path": "/snake.appcache",
+      "orientation": "portrait"
 }
