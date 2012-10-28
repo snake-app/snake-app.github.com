@@ -10,7 +10,8 @@ var Snake = {
 
   $map: {}, $cherry: {}, $overlay: {}, $bonusEl: {}, seg: {}, wallseg: {}, cache: {},
   cacheimages: ['img/snake/cherry.jpg'],
-  animateTimer: 0, score: 0, bonus: 0, initialBonus: 500, grid: 0, level: 1, lives: 3, speed: 0, cherriesEaten: 0,
+  animateTimer: 0, score: 0, bonus: 0, initialBonus: 500, grid: 0, level: 1, lives: 3,
+  speed: 0, speedMultiplier: 1, cherriesEaten: 0,
   wall: 1, // are the outer map walls an obstacle?
 
   // Map directions to keyboard codes.
@@ -40,6 +41,11 @@ var Snake = {
     Snake.$cherry = $('<div id="cherry"></div>').appendTo(Snake.$map);
 
     Snake.$bonusEl = $('#stats-bonus');
+
+    // The mobile touch controls are slower to use than a keyboard so slow the game for touch only devices.
+    if ('ontouchstart' in document.documentElement && $(window).width() < 1024) {
+      Snake.speedMultiplier = 1.5;
+    }
 
     // listen for key press, store keycode
     Snake.cache.keyCode = [0,0];
@@ -98,7 +104,7 @@ var Snake = {
     Snake.speed = Level[Snake.level][0].speed;
     // show the cherry, and start the animation
     Snake.$cherry.fadeIn(function() {
-      Snake.animateTimer = setInterval(Snake.animate, Snake.speed);
+      Snake.animateTimer = setInterval(Snake.animate, Snake.speed * Snake.speedMultiplier);
     });
   },
 
@@ -295,7 +301,7 @@ var Snake = {
     $("#stats-speed").text(Snake.speed);
 
     clearInterval(Snake.animateTimer);
-    Snake.animateTimer = setInterval(Snake.animate, Snake.speed);
+    Snake.animateTimer = setInterval(Snake.animate, Snake.speed * Snake.speedMultiplier);
     return false;
   },
 
