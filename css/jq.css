@@ -244,6 +244,10 @@ h1, #share {
 
 /* media queries */
 @media screen and (max-width: 320px) and (max-height: 480px)  {
+  html {
+    -moz-user-select: inherit; /* Too buggy on B2G */
+  }
+
   body {
     margin: 0;
   }
