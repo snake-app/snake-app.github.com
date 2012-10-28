@@ -24,20 +24,23 @@ body {
 }
 
 h1 {
+  margin-bottom: 0;
+}
+
+h1, #share {
   font-family: 'Leckerli One', "Segoe UI", Helvetica, Verdana, Arial, sans-serif;
   font-size: 2.2em;
-  margin-bottom: 0;
 }
 
 #inner-body {
   margin: 0 auto;
   max-width: 825px;
-  min-width: 320px;
+  position: relative;
 }
 
 #meta {
   float: left;
-  width: 400px;
+  max-width: 400px;
   text-align: justify;
   position: relative;
 }
@@ -45,7 +48,7 @@ h1 {
 #share {
   position: absolute;
   right: 0;
-  bottom: 0;
+  top: 0;
 }
 
 /* Oh yes, your Gumdrop Buttons */
@@ -242,12 +245,15 @@ h1 {
 /* media queries */
 @media screen and (max-width: 320px) and (max-height: 480px)  {
   body {
-    width: 336px;
     margin: 0;
   }
 
+  h1 {
+    margin-left: 2%;
+  }
+
   /* hide meta and title on small screens.  They may not even have visible keyboards */
-  h1, #meta {
+  #meta {
     display: none;
   }
 }
