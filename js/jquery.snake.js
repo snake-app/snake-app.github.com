@@ -83,7 +83,11 @@ var Snake = {
     } else {
       Snake.$map[0].className = 'verticalHeading';
     }
-    Snake.cache.keyCode[0] = lastDirectionKeyCode ? lastDirectionKeyCode : Snake.cache.keyCode[1];
+    if (typeof lastDirectionKeyCode === "undefined") {
+      Snake.cache.keyCode[0] = Snake.cache.keyCode[1];
+    } else {
+      Snake.cache.keyCode[0] = lastDirectionKeyCode;
+    }
     Snake.cache.keyCode[1] = directionKeyCode;
   },
 
