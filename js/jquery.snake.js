@@ -13,6 +13,7 @@ var Snake = {
   animateTimer: 0, score: 0, bonus: 0, initialBonus: 500, grid: 0, level: 1, lives: 3, speed: 0, cherriesEaten: 0,
   wall: 1, // are the outer map walls an obstacle?
 
+  // Map directions to keyboard codes.
   direction: {
     left: 37,
     up: 38,
@@ -71,8 +72,17 @@ var Snake = {
     };
   },
 
-  changeDirection: function(directionKeyCode) {
-    Snake.cache.keyCode[0] = Snake.cache.keyCode[1];
+  /**
+   * lastDirectionKeyCode is optional.
+   */
+  changeDirection: function(directionKeyCode, lastDirectionKeyCode) {
+    if (directionKeyCode == Snake.direction.left
+        || directionKeyCode == Snake.direction.right) {
+      Snake.$map[0].className = 'horizontalHeading';
+    } else {
+      Snake.$map[0].className = 'verticalHeading';
+    }
+    Snake.cache.keyCode[0] = lastDirectionKeyCode ? lastDirectionKeyCode : Snake.cache.keyCode[1];
     Snake.cache.keyCode[1] = directionKeyCode;
   },
 
@@ -153,8 +163,7 @@ var Snake = {
                               // start animation
                               setTimeout(function() {
                                 // reset direction
-                                Snake.cache.keyCode[0] = 0;
-                                Snake.cache.keyCode[1] = 39;
+                                Snake.changeDirection(Snake.direction.right, 0);
                                 Snake.start();
                               }, 1000);
                             });

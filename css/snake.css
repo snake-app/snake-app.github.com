@@ -48,17 +48,21 @@
 }
 
 #controls > .controls-vertical {
-  height: 10%;
+  height: 50%;
   left: 0;
-  margin: 0 10%;
-  width: 80%;
+  margin: 0;
+  width: 100%;
 }
 
 #controls > .controls-horizontal {
-  height: 80%;
-  margin: 10% 0;
+  height: 100%;
+  margin: 0;
   top: 0;
-  width: 10%;
+  width: 50%;
+}
+
+#map1.horizontalHeading > #controls > .controls-horizontal {
+  visibility: hidden;
 }
 
 #controls-left {
