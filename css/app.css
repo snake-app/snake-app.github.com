@@ -243,7 +243,8 @@ h1, #share {
 }
 
 /* media queries */
-@media screen and (max-width: 320px) and (max-height: 480px)  {
+@media screen and (max-width: 320px),
+       screen and (max-height: 320px) {
   html {
     -moz-user-select: inherit; /* Too buggy on B2G */
   }
@@ -258,6 +259,16 @@ h1, #share {
 
   /* hide meta and title on small screens.  They may not even have visible keyboards */
   #meta {
+    display: none;
+  }
+}
+
+@media screen and (max-height: 320px) {
+  body {
+    padding: 0 6px;
+  }
+
+  h1 {
     display: none;
   }
 }
