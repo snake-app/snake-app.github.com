@@ -73,7 +73,8 @@ var Snake = {
   },
 
   /**
-   * lastDirectionKeyCode is optional.
+   * directionKeyCode - direction to start heading.
+   * lastDirectionKeyCode is optional. Useful to reset state.
    */
   changeDirection: function(directionKeyCode, lastDirectionKeyCode) {
     if (directionKeyCode == Snake.direction.left
@@ -185,10 +186,10 @@ var Snake = {
     var keycode = Snake.cache.keyCode;
     if (
       // if key pressed is opposite of current direction
-      keycode[0] == 37 && keycode[1] == 39 ||
-        keycode[0] == 39 && keycode[1] == 37 ||
-        keycode[0] == 38 && keycode[1] == 40 ||
-        keycode[0] == 40 && keycode[1] == 38
+        keycode[0] == Snake.direction.left && keycode[1] == Snake.direction.right ||
+        keycode[0] == Snake.direction.right && keycode[1] == Snake.direction.left ||
+        keycode[0] == Snake.direction.up && keycode[1] == Snake.direction.down ||
+        keycode[0] == Snake.direction.down && keycode[1] == Snake.direction.up
     ) {
       // reset the keyCode
       Snake.cache.keyCode[1] = Snake.cache.keyCode[0];
@@ -196,29 +197,25 @@ var Snake = {
 
     keycode = Snake.cache.keyCode[1];
     // adjust leading segment properties
-    if (keycode == 39) {
-      // right
+    if (keycode == Snake.direction.right) {
       Snake.seg[0].left += 10;
       if (Snake.seg[0].left > Snake.$map.width - 10) {
         Snake.wall && Snake.gameOver();
         Snake.seg[0].left = 0;
       }
-    } else if (keycode == 40) {
-      // down
+    } else if (keycode == Snake.direction.down) {
       Snake.seg[0].top += 10;
       if (Snake.seg[0].top > Snake.$map.height - 10) {
         Snake.wall && Snake.gameOver();
         Snake.seg[0].top = 0;
       }
-    } else if (keycode == 38) {
-      // up
+    } else if (keycode == Snake.direction.up) {
       Snake.seg[0].top -= 10;
       if (Snake.seg[0].top < 0) {
         Snake.wall && Snake.gameOver();
         Snake.seg[0].top = Snake.$map.height - 10;
       }
-    } else if (keycode == 37) {
-      // left
+    } else if (keycode == Snake.direction.left) {
       Snake.seg[0].left -= 10;
       if (Snake.seg[0].left < 0) {
         Snake.wall && Snake.gameOver();
