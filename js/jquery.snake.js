@@ -8,7 +8,7 @@
 
 var Snake = {
 
-  $map: {}, $cherry: {}, $overlay: {}, seg: {}, wallseg: {}, cache: {},
+  $map: {}, $cherry: {}, $overlay: {}, $bonusEl: {}, seg: {}, wallseg: {}, cache: {},
   cacheimages: ['img/snake/cherry.jpg'],
   animateTimer: 0, score: 0, bonus: 0, initialBonus: 500, grid: 0, level: 1, lives: 3, speed: 0, cherriesEaten: 0,
   wall: 1, // are the outer map walls an obstacle?
@@ -38,6 +38,8 @@ var Snake = {
 
     // build and append cherry to map
     Snake.$cherry = $('<div id="cherry"></div>').appendTo(Snake.$map);
+
+    Snake.$bonusEl = $('#stats-bonus');
 
     // listen for key press, store keycode
     Snake.cache.keyCode = [0,0];
@@ -114,7 +116,7 @@ var Snake = {
 
     // reset bonus
     Snake.bonus = Snake.initialBonus;
-    $("#stats-bonus").text(Snake.bonus);
+    Snake.$bonusEl.text(Snake.bonus);
 
     // reset score
     Snake.score = reset ? 0 : Snake.score;
@@ -179,7 +181,7 @@ var Snake = {
   animate: function() {
     // decrease bonus until 0
     Snake.bonus = Math.max(0, Snake.bonus -= 1);
-    $("#stats-bonus").text(Snake.bonus);
+    Snake.$bonusEl.text(Snake.bonus);
 
     // adjust segment position list
     for(var i = 1; i < Snake.seg.length; i++) {
