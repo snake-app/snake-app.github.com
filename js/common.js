@@ -4,6 +4,10 @@ $(function common_onready() {
     window.applicationCache.update();
   } catch (ex) {}
 
+  /* Disable receipt checking while the app is free and receipts are broken on Android
+  mozmarket.receipts.verify(verifyReceipt);
+   */
+
   // setup the game
   Snake.setup();
 
@@ -14,8 +18,6 @@ $(function common_onready() {
     e.preventDefault();
     Snake.newGame(true);
   });
-
-  var timer = 0;
 
   if ("mozApps" in navigator) {
     var request = navigator.mozApps.getSelf();
@@ -42,7 +44,7 @@ function install() {
   var request = navigator.mozApps.install(window.location.protocol + "//" + window.location.host + "/snake.webapp");
   request.onsuccess = function() {
     // great - display a message, or redirect to a launch page
-    $('.installer').hide();
+    $('#installer').hide();
     $('.notInstalledYet').removeClass('notInstalledYet');
   };
   request.onerror = function() {
@@ -51,7 +53,7 @@ function install() {
   };
 }
 
-mozmarket.receipts.verify(function (verifier) {
+function verifyReceipt(verifier) {
   if (verifier.state instanceof verifier.states.OK
       || window.location.hash == "#purchased") {
     return;
@@ -76,7 +78,7 @@ mozmarket.receipts.verify(function (verifier) {
         console.log('Unknown error: ' + verifier.app.receipts + ' ' + verifier.error);
     $('body').addClass('purchaseNow');
   }
-});
+}
 
 function updateTweetButton() {
   if (Snake.score)
