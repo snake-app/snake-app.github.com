@@ -10,7 +10,6 @@
   margin-right: 25px;
   float: left;
   background-image: url(../img/snake/placeholder.png);
-  background-position: 0 15px;
   background-repeat: no-repeat;
 }
 
@@ -24,7 +23,6 @@
 }
 
 #map1 {
-  margin-top:15px;
   width:400px;
   height:400px;
   position:relative;

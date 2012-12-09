@@ -30,6 +30,7 @@ h1 {
 h1, #share {
   font-family: 'Leckerli One', "Segoe UI", Helvetica, Verdana, Arial, sans-serif;
   font-size: 2.2em;
+  margin-bottom: 15px;
 }
 
 #inner-body {
@@ -257,12 +258,17 @@ h1, #share {
     margin-left: 2%;
   }
 
+  h1, #share {
+    margin-bottom: 5px;
+  }
+
   /* hide meta and title on small screens.  They may not even have visible keyboards */
   #meta {
     display: none;
   }
 }
 
+/* e.g. landscape on B2G */
 @media screen and (max-height: 320px) {
   body {
     padding: 0 6px;
