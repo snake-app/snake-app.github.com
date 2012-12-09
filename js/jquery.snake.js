@@ -330,6 +330,8 @@ var Snake = {
   },
 
   pause: function() {
+    if (!Snake.gameStarted)
+      return;
     if (Snake.animateTimer == 0) {
       Snake.start();
       Snake.$overlay.hide();
