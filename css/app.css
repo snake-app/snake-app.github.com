@@ -46,6 +46,13 @@ h1, #share {
   position: relative;
 }
 
+#shortcut-keys > ul.touch {
+  display: none;
+  margin: 10px;
+  padding-left: 0;
+  text-align: center;
+}
+
 #share {
   position: absolute;
   right: 0;
@@ -148,7 +155,7 @@ h1, #share {
 .key {
   color: rgb(170,170,170);
   display: inline-block;
-  width: 44px;
+  min-width: 21px;
   height: 41px;
   text-align: center;
   line-height: 36px;
@@ -163,6 +170,7 @@ h1, #share {
   text-shadow: 0 1px 0 rgb(245,245,245);
   cursor: pointer;
   -moz-user-select: none;
+  padding: 0 12px 0 11px;
 }
 
 .key:hover {
@@ -262,9 +270,29 @@ h1, #share {
     margin-bottom: 5px;
   }
 
-  /* hide meta and title on small screens.  They may not even have visible keyboards */
-  #meta {
+  /* hide most of the meta info on small screens.  They may not even have visible keyboards */
+  #meta > section,
+  #shortcut-keys > h2,
+  #shortcut-keys > .keyboard {
     display: none;
+  }
+
+}
+
+/* e.g. portrait on B2G */
+@media screen and (max-width: 320px) {
+  #meta {
+    width: 100%;
+  }
+
+  #meta > #shortcut-keys {
+    display: block;
+  }
+
+  #shortcut-keys > ul.touch {
+    display: block;
+    margin-top: 4px;
+    margin-bottom: 4px;
   }
 }
 
