@@ -87,9 +87,9 @@ var Snake = {
   changeDirection: function(directionKeyCode, lastDirectionKeyCode) {
     if (directionKeyCode == Snake.direction.left
         || directionKeyCode == Snake.direction.right) {
-      Snake.$map[0].className = 'horizontalHeading';
+      Snake.$map[0].parentElement.className = 'horizontalHeading';
     } else {
-      Snake.$map[0].className = 'verticalHeading';
+      Snake.$map[0].parentElement.className = 'verticalHeading';
     }
     if (typeof lastDirectionKeyCode === "undefined") {
       Snake.cache.keyCode[0] = Snake.cache.keyCode[1];
