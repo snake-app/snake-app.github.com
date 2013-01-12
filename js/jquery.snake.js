@@ -8,12 +8,15 @@
 
 var Snake = {
 
-  $map: {}, $cherry: {}, $overlay: {}, $bonusEl: {}, seg: {}, wallseg: {}, cache: {},
+  // jQuery objects
+  $map: {}, $cherry: {}, $overlay: {}, statEls: {},
+
+  seg: {}, wallseg: {}, cache: {},
   cacheimages: ['img/snake/cherry.jpg'],
   animateTimer: 0, score: 0, bonus: 0, initialBonus: 500, grid: 0, level: 1, lives: 3,
   paused: false, speed: 0, speedMultiplier: 1, cherriesEaten: 0, debug: false,
   gameStarted: false,
-  wall: 1, // are the outer map walls an obstacle?
+  wall: true, // are the outer map walls an obstacle?
 
   // Map directions to keyboard codes.
   direction: {
@@ -30,6 +33,15 @@ var Snake = {
       img.src = Snake.cacheimages[i];
     }
 
+    Snake.statEls = {
+      $bonus: $("#stats-bonus"),
+      $eaten: $("#stats-eaten"),
+      $level: $("#stats-level"),
+      $lives: $("#stats-lives"),
+      $score: $("#stats-score"),
+      $totcherries: $("#stats-totcherries")
+    };
+
     // build map
     Snake.$map = $("#map1");
     Snake.$map.width = Snake.$map.innerWidth();
@@ -40,8 +52,6 @@ var Snake = {
 
     // build and append cherry to map
     Snake.$cherry = $('<div id="cherry"></div>').appendTo(Snake.$map);
-
-    Snake.$bonusEl = $('#stats-bonus');
 
     // The mobile touch controls are slower to use than a keyboard so slow the game for touch only devices.
     if ('ontouchstart' in document.documentElement && $(window).width() < 1024) {
@@ -155,23 +165,23 @@ var Snake = {
 
     // reset bonus
     Snake.bonus = Snake.initialBonus;
-    Snake.$bonusEl.text(Snake.bonus);
+    Snake.statEls.$bonus.text(Snake.bonus);
 
     // reset score
     Snake.score = reset ? 0 : Snake.score;
-    $("#stats-score").text(Snake.score + "");
+    Snake.statEls.$score.text(Snake.score + "");
 
     // reset level
     Snake.level = reset ? 1 : Snake.level;
-    $("#stats-level").text(Snake.level);
+    Snake.statEls.$level.text(Snake.level);
 
     // reset lives
     Snake.lives = reset ? 3 : Snake.lives;
-    $("#stats-lives").text(Snake.lives);
+    Snake.statEls.$lives.text(Snake.lives);
 
     // reset level cherries eaten and total
-    $("#stats-eaten").text(Snake.cherriesEaten + "");
-    $("#stats-totcherries").text(Level[Snake.level][0].cherries);
+    Snake.statEls.$eaten.text(Snake.cherriesEaten + "");
+    Snake.statEls.$totcherries.text(Level[Snake.level][0].cherries);
 
     // remove any wall & snake segments
     $(".wall, .snake").remove();
@@ -210,7 +220,7 @@ var Snake = {
   animate: function() {
     // decrease bonus until 0
     Snake.bonus = Math.max(0, Snake.bonus -= 1);
-    Snake.$bonusEl.text(Snake.bonus);
+    Snake.statEls.$bonus.text(Snake.bonus);
 
     // adjust segment position list
     for(var i = 1; i < Snake.seg.length; i++) {
@@ -313,11 +323,11 @@ var Snake = {
 
     // adjust score
     Snake.score += 50;
-    $("#stats-score").text(Snake.score);
+    Snake.statEls.$score.text(Snake.score);
 
     // update cherries eaten
     Snake.cherriesEaten++;
-    $("#stats-eaten").text(Snake.cherriesEaten);
+    Snake.statEls.$eaten.text(Snake.cherriesEaten);
 
     // adjust speed
     Snake.speed -= 1;
