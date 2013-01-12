@@ -11,7 +11,8 @@ var Snake = {
   $map: {}, $cherry: {}, $overlay: {}, $bonusEl: {}, seg: {}, wallseg: {}, cache: {},
   cacheimages: ['img/snake/cherry.jpg'],
   animateTimer: 0, score: 0, bonus: 0, initialBonus: 500, grid: 0, level: 1, lives: 3,
-  speed: 0, speedMultiplier: 1, cherriesEaten: 0,
+  paused: false, speed: 0, speedMultiplier: 1, cherriesEaten: 0, debug: false,
+  gameStarted: false,
   wall: 1, // are the outer map walls an obstacle?
 
   // Map directions to keyboard codes.
@@ -99,16 +100,48 @@ var Snake = {
     Snake.cache.keyCode[1] = directionKeyCode;
   },
 
-  start: function() {
-    // set initial speed
-    Snake.speed = Level[Snake.level][0].speed;
+  start: function(resume) {
+    this.log("start: resume:", resume, "paused:", Snake.paused);
+    if (!resume || !Snake.speed) {
+      // set initial speed
+      Snake.speed = Level[Snake.level][0].speed;
+    }
+
     // show the cherry, and start the animation
     Snake.$cherry.fadeIn(function() {
+      if (Snake.paused && !resume) {
+        return;
+      }
       Snake.animateTimer = setInterval(Snake.animate, Snake.speed * Snake.speedMultiplier);
     });
   },
 
+  /**
+   * Reset the level and show the level intro.
+   * @param reset  Whether to start again at the first level. (e.g. New Game button pressed)
+   */
   newGame: function(reset) {
+    this.log("newGame: reset:", !!reset);
+
+    function cleanBoard() {
+      // reset and generate wall
+      Snake.wallseg = {};
+      Snake.Wall.generate();
+
+      // generate cherry
+      Snake.Cherry.generate(false);
+
+      // reset, remove and re-append snake segments to map
+      Snake.seg = {length: Level[Snake.level][0].length};
+      for(var i = 0; i < Snake.seg.length; i++) {
+        Snake.seg[i] = $('<span class="snake ' + i + '"></span>').appendTo(Snake.$map);
+        Snake.seg[i].top = Snake.seg[i].left = 0;
+      }
+
+      // reset direction
+      Snake.changeDirection(Snake.direction.right, 0);
+    }
+
     if (reset) {
       Snake.$map.css("transition", "background-color 500ms");
       Snake.$map.css("background-color", "white");
@@ -153,33 +186,23 @@ var Snake = {
 
                           setTimeout(function() {
 
-                            // hide map message
-                            $("#map-msg").fadeOut(500, function() {
+                            if (Snake.paused) {
+                              cleanBoard();
+                            } else {
+                              // hide map message
+                              $("#map-msg").fadeOut(500, function() {
+                                // hide overlay
+                                Snake.$overlay.hide();
 
-                              // hide overlay
-                              Snake.$overlay.hide();
+                                cleanBoard();
 
-                              // reset and generate wall
-                              Snake.wallseg = {};
-                              Snake.Wall.generate();
+                                // start snake animation
+                                setTimeout(function() {
+                                  Snake.start();
+                                }, 1000);
 
-                              // generate cherry
-                              Snake.Cherry.generate(false);
-
-                              // reset, remove and re-append snake segments to map
-                              Snake.seg = {length: Level[Snake.level][0].length};
-                              for(var i = 0; i < Snake.seg.length; i++) {
-                                Snake.seg[i] = $('<span class="snake ' + i + '"></span>').appendTo(Snake.$map);
-                                Snake.seg[i].top = Snake.seg[i].left = 0;
-                              }
-
-                              // start animation
-                              setTimeout(function() {
-                                // reset direction
-                                Snake.changeDirection(Snake.direction.right, 0);
-                                Snake.start();
-                              }, 1000);
-                            });
+                              });
+                            }
                           }, 2500);
                         });
   },
@@ -298,7 +321,7 @@ var Snake = {
 
     // adjust speed
     Snake.speed -= 1;
-    $("#stats-speed").text(Snake.speed);
+    this.log("Speed:", Snake.speed);
 
     clearInterval(Snake.animateTimer);
     Snake.animateTimer = setInterval(Snake.animate, Snake.speed * Snake.speedMultiplier);
@@ -332,16 +355,19 @@ var Snake = {
   pause: function() {
     if (!Snake.gameStarted)
       return;
-    if (Snake.animateTimer == 0) {
-      Snake.start();
+    if (Snake.paused) {
+      Snake.start(true);
       Snake.$overlay.hide();
       $("#map-msg").fadeOut();
     } else {
+      // Pause
       clearInterval(Snake.animateTimer);
       Snake.animateTimer = 0;
       Snake.$overlay.show();
       $("#map-msg").html("<br/>Paused").fadeIn();
     }
+    Snake.paused = (Snake.paused + 1) % 2;
+    this.log("paused:", Snake.paused);
   },
 
   gameOver: function() {
@@ -411,6 +437,14 @@ var Snake = {
       }
     }
     return false;
+  },
+
+  log: function(message /*, message2, ...*/) {
+    if (!this.debug)
+      return;
+    if (!("log" in console))
+      return;
+    console.log(Array.prototype.slice.call(arguments).join(' '));
   }
 
 };
