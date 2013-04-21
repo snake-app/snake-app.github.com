@@ -1,5 +1,5 @@
 CACHE MANIFEST
-# v23 - 2013-01-11
+# v24 - 2013-04-21
 css/app.css
 css/snake.css
 css/Leckerli.woff
@@ -17,5 +17,4 @@ img/snake/placeholder.png
 js/common.js
 js/jquery.snake.js
 js/receiptverifier/receiptverifier.js
-http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js
-http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.24/jquery-ui.min.js
+https://ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js

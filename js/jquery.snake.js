@@ -61,18 +61,18 @@ var Snake = {
     // listen for key press, store keycode
     Snake.cache.keyCode = [0,0];
     document.onkeydown = function(e) {
-      // preventing default event behaviour causes issues with IE;
-      // need to research further!
-      var keycode = (e == null) ? event.keyCode : e.which;
-      switch (keycode) {
+      switch (e.keyCode) {
         case 71:
-          (!$.browser.msie && e.preventDefault()); Snake.toggleGrid();
+          e.preventDefault();
+          Snake.toggleGrid();
           break;
         case 80:
-          (!$.browser.msie && e.preventDefault()); Snake.pause();
+          e.preventDefault();
+          Snake.pause();
           break;
         case 78:
-          (!$.browser.msie && e.preventDefault()); Snake.newGame(true);
+          e.preventDefault();
+          Snake.newGame(true);
           break;
         case 75:
           $('.purchaseNow').removeClass('purchaseNow');
@@ -82,8 +82,8 @@ var Snake = {
         case Snake.direction.up:
         case Snake.direction.right:
         case Snake.direction.down:
-          (!$.browser.msie && e.preventDefault());
-          Snake.changeDirection(keycode);
+          e.preventDefault();
+          Snake.changeDirection(e.keyCode);
           break;
         default:
           break;
