@@ -1,8 +1,9 @@
-$(function common_onready() {
+document.addEventListener("DOMContentLoaded", function common_onready() {
   // Check for appcache updates
   try {
     window.applicationCache.addEventListener('updateready', function updateReady(evt) {
       window.applicationCache.swapCache();
+      console.log("Swapped cache");
     });
     window.applicationCache.update();
   } catch (ex) {}
