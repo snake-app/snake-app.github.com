@@ -1,4 +1,4 @@
-document.addEventListener("load", function common_onready() {
+window.addEventListener("load", function common_onready() {
   // Check for appcache updates
   try {
     window.applicationCache.addEventListener('updateready', function updateReady(evt) {
