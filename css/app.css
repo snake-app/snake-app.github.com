@@ -248,8 +248,8 @@ h1, #share {
 }
 
 /* media queries */
-@media screen and (max-width: 320px),
-       screen and (max-height: 320px) {
+@media screen and (max-width: 324px),
+       screen and (max-height: 324px) {
   html {
     -moz-user-select: inherit; /* Too buggy on B2G */
   }
@@ -276,7 +276,7 @@ h1, #share {
 }
 
 /* e.g. portrait on B2G */
-@media screen and (max-width: 320px) {
+@media screen and (max-width: 324px) {
   #meta {
     width: 100%;
   }
@@ -293,7 +293,7 @@ h1, #share {
 }
 
 /* e.g. landscape on B2G */
-@media screen and (max-height: 320px) {
+@media screen and (max-height: 324px) {
   body {
     padding: 0 6px;
   }
