@@ -17,7 +17,7 @@
 @media screen and (max-width: 420px) and (orientation: portrait),
        screen and (max-height: 420px) and (orientation: landscape) {
   #snake-col-map {
-    margin: -40px;
+    margin: -30px;
     min-width: 320px; /* don't remember what this is for */
     transform: scale(0.8);
   }
@@ -26,7 +26,7 @@
 @media screen and (max-width: 359px) and (orientation: portrait),
        screen and (max-height: 359px) and (orientation: landscape){
   #snake-col-map {
-    margin: -40px; /* (400 * 0.75)  */
+    margin: -40px;
     min-width: 320px;
     transform: scale(0.75);
   }
