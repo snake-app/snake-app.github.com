@@ -14,10 +14,19 @@
   position: relative;
 }
 
-@media screen and (max-width: 400px),
-       screen and (max-height: 324px) {
+@media screen and (max-width: 420px) and (orientation: portrait),
+       screen and (max-height: 420px) and (orientation: landscape) {
   #snake-col-map {
-    margin: -12.5%;
+    margin: -40px;
+    min-width: 320px; /* don't remember what this is for */
+    transform: scale(0.8);
+  }
+}
+
+@media screen and (max-width: 359px) and (orientation: portrait),
+       screen and (max-height: 359px) and (orientation: landscape){
+  #snake-col-map {
+    margin: -40px; /* (400 * 0.75)  */
     min-width: 320px;
     transform: scale(0.75);
   }
