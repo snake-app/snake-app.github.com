@@ -16,6 +16,7 @@
         "https://marketplace.mozilla.org",
         "http://snake-app.github.com",
         "http://snake-app.github.io",
+        "https://snake-app.github.io",
         "http://snake.localhost"
       ],
       "appcache_path": "/snake.appcache"
