@@ -1,13 +1,12 @@
-window.addEventListener("load", function common_onready() {
-  // Check for appcache updates
-  try {
-    window.applicationCache.addEventListener('updateready', function updateReady(evt) {
-      window.applicationCache.swapCache();
-      console.log("Swapped cache");
-    });
-    window.applicationCache.update();
-  } catch (ex) {}
+if (navigator.serviceWorker) {
+  navigator.serviceWorker.register("service-worker.js", {
+    scope: "./"
+  }).then(function(registration) {
+    console.log("The service worker has been registered:", registration);
+  });
+}
 
+window.addEventListener("load", function common_onready() {
   // setup the game
   Snake.setup();
 

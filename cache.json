@@ -1,0 +1,19 @@
+[
+  "css/app.css",
+  "css/snake.css",
+  "css/Leckerli.woff",
+  "img/background-texture.png",
+  "img/screenshot.png",
+  "img/slithering.png",
+  "img/icon-16.png",
+  "img/icon-32.png",
+  "img/icon-64.png",
+  "img/icon-128.png",
+  "img/marketplace-glyph.png",
+  "img/snake/cherry.jpg",
+  "img/snake/grid_bg.gif",
+  "img/snake/placeholder.png",
+  "https://ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js",
+  "js/common.js",
+  "js/jquery.snake.js"
+]
