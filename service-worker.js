@@ -1,3 +1,5 @@
+// v2 - 2016-04-03
+
 var CACHE_NAME = "dependencies-cache";
 
 self.addEventListener("install", function(event) {
