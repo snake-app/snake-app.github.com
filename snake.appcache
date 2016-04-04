@@ -1,5 +1,5 @@
 CACHE MANIFEST
-# v27 - 2014-06-07
+# v28 - 2016-04-03
 css/app.css
 css/snake.css
 css/Leckerli.woff
@@ -14,7 +14,6 @@ img/marketplace-glyph.png
 img/snake/cherry.jpg
 img/snake/grid_bg.gif
 img/snake/placeholder.png
-https://ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js
-js/receiptverifier/receiptverifier.js
+https://ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js
 js/common.js
 js/jquery.snake.js
